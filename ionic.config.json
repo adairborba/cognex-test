@@ -1,0 +1,7 @@
+{
+  "name": "cognex",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
