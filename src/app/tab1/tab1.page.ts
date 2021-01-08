@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { ManateeScanner } from '../providers/manatee-scanner.provider';
+declare var cmbScanner:any;
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +10,25 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+	scannerActive:string ="barcode";
 
+  constructor(
+    private platform: Platform,
+    private zone: NgZone,
+    private manateeScanner: ManateeScanner,
+    ) {
+    }
+  
+  click() {
+    debugger;
+    this.manateeScanner.scan().then((barcodeData: any) => {
+      debugger;
+      console.log(barcodeData);
+    });
+  }
+  
+  init() {
+    debugger;
+    this.manateeScanner.init();
+  }
 }
